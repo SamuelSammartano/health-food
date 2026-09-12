@@ -1,0 +1,56 @@
+---
+title: "NHANES Health Insights"
+subtitle: "Exploring Body Mass Index (BMI) trajectories across age and sex"
+---
+
+The **National Health and Nutrition Examination Survey (NHANES)** assesses the health and nutritional status of adults and children across the United States.
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(primer.data)
+```
+
+```{r}
+#| label: bmi-plot
+#| fig-width: 10
+#| fig-height: 5.5
+#| fig-align: center
+
+nhanes |>
+  drop_na(age, bmi, sex) |>
+  ggplot(aes(x = age, y = bmi, color = sex)) +
+  geom_point(alpha = 0.12, size = 1.2) +
+  geom_smooth(method = "loess", se = FALSE, linewidth = 1.2) +
+  facet_wrap(~ sex) +
+  scale_color_manual(values = c("Female" = "#d95f02", "Male" = "#1b9e77")) +
+  scale_x_continuous(breaks = seq(0, 80, by = 20)) +
+  scale_y_continuous(breaks = seq(10, 80, by = 10)) +
+  labs(
+    title = "Body Mass Index Trajectory Across the Lifespan",
+    subtitle = "Comparing BMI trends across age for female and male NHANES participants",
+    x = "Age (years)",
+    y = "Body Mass Index (kg/m²)",
+    caption = "Source: National Health and Nutrition Examination Survey (primer.data::nhanes)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    legend.position = "none",
+    strip.text = element_text(face = "bold", size = 13),
+    plot.title = element_text(face = "bold", size = 15, margin = margin(b = 6)),
+    plot.subtitle = element_text(color = "#555555", margin = margin(b = 15)),
+    plot.caption = element_text(color = "#888888", size = 9, margin = margin(t = 12)),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "#ececec")
+  )
+```
+
+### Key Observations
+
+- **Childhood to Early Adulthood:** BMI increases sharply from childhood into the twenties as individuals grow.
+- **Middle Adulthood:** BMI levels tend to plateau between ages 30 and 60, with the average hovering in the 28–30 kg/m² range.
+- **Later Decades:** The trend line stabilizes and gently tapers downward in older age, following comparable paths for both males and females.
+
+

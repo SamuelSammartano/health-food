@@ -1,0 +1,6 @@
+---
+title: "health-food"
+---
+
+This project investigates physical measurements and health metrics from the National Health and Nutrition Examination Survey (NHANES), provided by the `primer.data` R package.
+

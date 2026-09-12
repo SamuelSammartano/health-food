@@ -1,16 +1,23 @@
 [
   {
+    "objectID": "health-food.html",
+    "href": "health-food.html",
+    "title": "health-food",
+    "section": "",
+    "text": "This project investigates physical measurements and health metrics from the National Health and Nutrition Examination Survey (NHANES), provided by the primer.data R package."
+  },
+  {
+    "objectID": "food.html",
+    "href": "food.html",
+    "title": "health-food",
+    "section": "",
+    "text": "This project investigates physical measurements and health metrics from the National Health and Nutrition Examination Survey (NHANES), provided by the primer.data R package."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "NHANES Health Insights",
     "section": "",
     "text": "The National Health and Nutrition Examination Survey (NHANES) assesses the health and nutritional status of adults and children across the United States.\n\n\n\n\n\n\n\n\n\n\nKey Observations\n\nChildhood to Early Adulthood: BMI increases sharply from childhood into the twenties as individuals grow.\nMiddle Adulthood: BMI levels tend to plateau between ages 30 and 60, with the average hovering in the 28–30 kg/m² range.\nLater Decades: The trend line stabilizes and gently tapers downward in older age, following comparable paths for both males and females."
-  },
-  {
-    "objectID": "food.html",
-    "href": "food.html",
-    "title": "SamuelSammartano",
-    "section": "",
-    "text": "This project investigates physical measurements and health metrics from the National Health and Nutrition Examination Survey (NHANES), provided by the primer.data R package."
   }
 ]

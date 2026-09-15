@@ -95,6 +95,45 @@ upf_trends |>
   )
 ```
 
-- **Majority of Calories:** Ultra-processed foods contribute over 57% of daily calories consumed by US adults.
-- **Steady Rise:** Between 2001–2002 and 2017–2018, the share of daily energy from ultra-processed food grew by 3.5 percentage points.
+```{r}
+#| label: non-upf-time-plot
+#| fig-width: 9
+#| fig-height: 5
+#| fig-align: center
+
+food_trends <- tibble(
+  year = c(2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018),
+  non_upf_rate = c(0.327, 0.318, 0.305, 0.300, 0.295, 0.291, 0.283, 0.281, 0.274)
+)
+
+food_trends |>
+  ggplot(aes(x = year, y = non_upf_rate)) +
+  geom_line(color = "#2ca25f", linewidth = 1.2) +
+  geom_point(color = "#2ca25f", size = 3) +
+  geom_text(aes(label = scales::percent(non_upf_rate, accuracy = 0.1)), vjust = -1, size = 3.5) +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    limits = c(0.24, 0.36),
+    breaks = seq(0.24, 0.36, by = 0.02)
+  ) +
+  scale_x_continuous(breaks = seq(2002, 2018, by = 2)) +
+  labs(
+    title = "Whole & Minimally Processed Food Consumption Over Time (2001–2018)",
+    subtitle = "Percentage of total daily calories from unprocessed foods among US adults",
+    x = "Survey Period Ending Year",
+    y = "Share of Daily Calories",
+    caption = "Source: NHANES dietary intake data / Juul et al. (Am J Clin Nutr, 2022)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15, margin = margin(b = 6)),
+    plot.subtitle = element_text(color = "#555555", margin = margin(b = 15)),
+    plot.caption = element_text(color = "#888888", size = 9, margin = margin(t = 12)),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "#ececec")
+  )
+```
+
+- **Opposing Trends:** As ultra-processed foods rose from 53.5% to 57.0% of daily calories, whole and minimally processed foods fell from 32.7% to 27.4% over the same 2001–2018 period.
+- **Dietary Replacement:** The drop in whole foods (primarily fresh meat, dairy, and produce) reflects a steady shift toward industrial, ready-to-eat products in the American diet.
 

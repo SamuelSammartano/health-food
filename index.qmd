@@ -112,7 +112,7 @@ Research from NHANES dietary recall surveys tracks how the proportion of daily c
 food_trends <- tibble(
   year = c(2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2023),
   upf_rate = c(0.535, 0.543, 0.554, 0.558, 0.561, 0.564, 0.569, 0.567, 0.570, 0.530),
-  non_upf_rate = c(0.327, 0.318, 0.305, 0.300, 0.295, 0.291, 0.283, 0.281, 0.274, NA)
+  non_upf_rate = c(0.327, 0.318, 0.305, 0.300, 0.295, 0.291, 0.283, 0.281, 0.274, 0.305)
 )
 
 food_trends |>
@@ -150,7 +150,6 @@ food_trends |>
 #| fig-align: center
 
 food_trends |>
-  drop_na(non_upf_rate) |>
   ggplot(aes(x = year, y = non_upf_rate)) +
   geom_line(color = "#2ca25f", linewidth = 1.2) +
   geom_point(color = "#2ca25f", size = 3) +
@@ -160,13 +159,13 @@ food_trends |>
     limits = c(0.24, 0.36),
     breaks = seq(0.24, 0.36, by = 0.02)
   ) +
-  scale_x_continuous(breaks = seq(2002, 2018, by = 2)) +
+  scale_x_continuous(breaks = c(2002, 2006, 2010, 2014, 2018, 2023)) +
   labs(
-    title = "Whole & Minimally Processed Food Consumption Over Time (2001–2018)",
+    title = "Whole & Minimally Processed Food Consumption Over Time (2001–2023)",
     subtitle = "Percentage of total daily calories from unprocessed foods among US adults",
     x = "Survey Period Ending Year",
     y = "Share of Daily Calories",
-    caption = "Source: NHANES dietary intake data / Juul et al. (Am J Clin Nutr, 2022)"
+    caption = "Source: NHANES dietary intake data / Juul et al. (2022) & NCHS Data Brief No. 536 (2025)"
   ) +
   theme_minimal(base_size = 13) +
   theme(
@@ -178,8 +177,8 @@ food_trends |>
   )
 ```
 
-- **Opposing Trends:** As ultra-processed foods rose from 53.5% to 57.0% of daily calories, whole and minimally processed foods fell from 32.7% to 27.4% over the same 2001–2018 period.
-- **Dietary Replacement:** The drop in whole foods (primarily fresh meat, dairy, and produce) reflects a steady shift toward industrial, ready-to-eat products in the American diet.
+- **Opposing Trends:** As ultra-processed foods rose from 53.5% in 2001–2002 to 57.0% in 2017–2018, whole and minimally processed foods fell from 32.7% to 27.4%.
+- **Recent Shift:** In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%.
 
 
 

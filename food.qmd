@@ -67,8 +67,8 @@ food_trends <- bind_rows(
     category = "Ultra-Processed Foods"
   ),
   tibble(
-    year = c(2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018),
-    pct_calories = c(0.327, 0.318, 0.305, 0.300, 0.295, 0.291, 0.283, 0.281, 0.274),
+    year = c(2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2023),
+    pct_calories = c(0.327, 0.318, 0.305, 0.300, 0.295, 0.291, 0.283, 0.281, 0.274, 0.305),
     category = "Whole & Minimally Processed Foods"
   )
 )
@@ -114,6 +114,6 @@ food_trends |>
   )
 ```
 
-- **Opposing Trends:** As ultra-processed foods rose from 53.5% to 57.0% of daily calories, whole and minimally processed foods fell from 32.7% to 27.4% over the same 2001–2018 period.
-- **Dietary Replacement:** The drop in whole foods (primarily fresh meat, dairy, and produce) reflects a steady shift toward industrial, ready-to-eat products in the American diet.
+- **Opposing Trends:** As ultra-processed foods rose from 53.5% in 2001–2002 to 57.0% in 2017–2018, whole and minimally processed foods fell from 32.7% to 27.4%.
+- **Recent Shift:** In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%.
 

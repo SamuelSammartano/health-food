@@ -28,11 +28,11 @@
     "text": "This project investigates physical measurements and health metrics from the National Health and Nutrition Examination Survey (NHANES), provided by the primer.data R package."
   },
   {
-    "objectID": "food.html#ultra-processed-food-consumption-over-time",
-    "href": "food.html#ultra-processed-food-consumption-over-time",
+    "objectID": "food.html#dietary-trends-ultra-processed-vs.-minimally-processed-foods",
+    "href": "food.html#dietary-trends-ultra-processed-vs.-minimally-processed-foods",
     "title": "health-food",
-    "section": "Ultra-Processed Food Consumption Over Time",
-    "text": "Ultra-Processed Food Consumption Over Time\nResearch from NHANES dietary recall surveys tracks the proportion of daily calories coming from ultra-processed foods (such as packaged snacks, sugary beverages, and ready-to-eat meals) among Americans.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpposing Trends: As ultra-processed foods rose from 53.5% to 57.0% of daily calories, whole and minimally processed foods fell from 32.7% to 27.4% over the same 2001–2018 period.\nDietary Replacement: The drop in whole foods (primarily fresh meat, dairy, and produce) reflects a steady shift toward industrial, ready-to-eat products in the American diet."
+    "section": "Dietary Trends: Ultra-Processed vs. Minimally Processed Foods",
+    "text": "Dietary Trends: Ultra-Processed vs. Minimally Processed Foods\nResearch from NHANES dietary recall surveys tracks the proportion of daily calories coming from ultra-processed foods compared to whole and minimally processed foods among Americans.\n\n\n\n\n\n\n\n\n\n\nOpposing Trends: As ultra-processed foods rose from 53.5% to 57.0% of daily calories, whole and minimally processed foods fell from 32.7% to 27.4% over the same 2001–2018 period.\nDietary Replacement: The drop in whole foods (primarily fresh meat, dairy, and produce) reflects a steady shift toward industrial, ready-to-eat products in the American diet."
   },
   {
     "objectID": "index.html",

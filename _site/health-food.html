@@ -162,8 +162,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="food-processing-trends-over-time-20012018" class="level2">
-<h2 class="anchored" data-anchor-id="food-processing-trends-over-time-20012018">Food Processing Trends Over Time (2001–2018)</h2>
+<section id="food-processing-trends-over-time-20012023" class="level2">
+<h2 class="anchored" data-anchor-id="food-processing-trends-over-time-20012023">Food Processing Trends Over Time (2001–2023)</h2>
 <p>Research from NHANES dietary recall surveys tracks how the proportion of daily calories coming from ultra-processed foods versus whole or minimally processed foods has shifted among US adults.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -265,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/SamuelSammartano\.github\.io\/health-food\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

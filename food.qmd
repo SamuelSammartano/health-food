@@ -4,3 +4,49 @@ title: "health-food"
 
 This project investigates physical measurements and health metrics from the National Health and Nutrition Examination Survey (NHANES), provided by the `primer.data` R package.
 
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+```
+
+```{r}
+#| label: obesity-time-plot
+#| fig-width: 9
+#| fig-height: 5
+#| fig-align: center
+
+obesity_trends <- tibble(
+  year = c(2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020),
+  rate = c(0.305, 0.305, 0.322, 0.343, 0.337, 0.357, 0.349, 0.377, 0.396, 0.424, 0.419)
+)
+
+obesity_trends |>
+  ggplot(aes(x = year, y = rate)) +
+  geom_line(color = "#2c7bb6", linewidth = 1.2) +
+  geom_point(color = "#2c7bb6", size = 3) +
+  geom_text(aes(label = scales::percent(rate, accuracy = 0.1)), vjust = -1, size = 3.5) +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    limits = c(0.25, 0.48),
+    breaks = seq(0.25, 0.45, by = 0.05)
+  ) +
+  scale_x_continuous(breaks = seq(2000, 2020, by = 4)) +
+  labs(
+    title = "US Adult Obesity Prevalence Over Time (1999–2020)",
+    subtitle = "Age-adjusted percentage of adults (aged 20+) with BMI ≥ 30",
+    x = "Survey Year",
+    y = "Obesity Rate",
+    caption = "Source: CDC / National Center for Health Statistics (NHANES)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15, margin = margin(b = 6)),
+    plot.subtitle = element_text(color = "#555555", margin = margin(b = 15)),
+    plot.caption = element_text(color = "#888888", size = 9, margin = margin(t = 12)),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "#ececec")
+  )
+```
+

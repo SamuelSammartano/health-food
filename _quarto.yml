@@ -7,6 +7,8 @@ website:
     left:
       - href: index.qmd
         text: Overview
+      - href: health-food.qmd
+        text: Health & Food
       - href: food.qmd
         text: About
 

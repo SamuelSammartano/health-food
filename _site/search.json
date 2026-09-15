@@ -14,11 +14,11 @@
     "text": "Obesity Rates Over Time"
   },
   {
-    "objectID": "health-food.html#food-processing-trends-over-time-20012023",
-    "href": "health-food.html#food-processing-trends-over-time-20012023",
+    "objectID": "health-food.html#food-consumption-trends-ultra-processed-vs.-minimally-processed-foods",
+    "href": "health-food.html#food-consumption-trends-ultra-processed-vs.-minimally-processed-foods",
     "title": "health-food",
-    "section": "Food Processing Trends Over Time (2001–2023)",
-    "text": "Food Processing Trends Over Time (2001–2023)\nResearch from NHANES dietary recall surveys tracks how the proportion of daily calories coming from ultra-processed foods versus whole or minimally processed foods has shifted among US adults.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpposing Trends: As ultra-processed foods rose from 53.5% in 2001–2002 to 57.0% in 2017–2018, whole and minimally processed foods fell from 32.7% to 27.4%.\nRecent Shift: In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%."
+    "section": "Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods",
+    "text": "Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods\nThis graph tracks the proportion of daily calories coming from ultra-processed foods (shown in red) compared to whole and minimally processed foods (shown in green) among US adults over time.\n\n\n\n\n\n\n\n\n\n\nOpposing Trends: As ultra-processed foods rose from 52.5% in 1999–2000 to over 57% by 2018–2020, whole and minimally processed foods fell from 33.5% to 27.4%.\nRecent Shift: In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%."
   },
   {
     "objectID": "food.html",
@@ -28,11 +28,11 @@
     "text": "This project investigates physical measurements and health metrics from the National Health and Nutrition Examination Survey (NHANES), provided by the primer.data R package."
   },
   {
-    "objectID": "food.html#dietary-trends-ultra-processed-vs.-minimally-processed-foods",
-    "href": "food.html#dietary-trends-ultra-processed-vs.-minimally-processed-foods",
+    "objectID": "food.html#food-consumption-trends-ultra-processed-vs.-minimally-processed-foods",
+    "href": "food.html#food-consumption-trends-ultra-processed-vs.-minimally-processed-foods",
     "title": "health-food",
-    "section": "Dietary Trends: Ultra-Processed vs. Minimally Processed Foods",
-    "text": "Dietary Trends: Ultra-Processed vs. Minimally Processed Foods\nResearch from NHANES dietary recall surveys tracks the proportion of daily calories coming from ultra-processed foods compared to whole and minimally processed foods among Americans.\n\n\n\n\n\n\n\n\n\n\nOpposing Trends: As ultra-processed foods rose from 53.5% in 2001–2002 to 57.0% in 2017–2018, whole and minimally processed foods fell from 32.7% to 27.4%.\nRecent Shift: In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%."
+    "section": "Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods",
+    "text": "Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods\nThis graph tracks the proportion of daily calories coming from ultra-processed foods (shown in red) compared to whole and minimally processed foods (shown in green) among US adults over time.\n\n\n\n\n\n\n\n\n\n\nOpposing Trends: As ultra-processed foods rose from 52.5% in 1999–2000 to over 57% by 2018–2020, whole and minimally processed foods fell from 33.5% to 27.4%.\nRecent Shift: In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%."
   },
   {
     "objectID": "index.html",
@@ -49,10 +49,10 @@
     "text": "Obesity Rates Over Time\nBeyond individual age trajectories, national health surveys track how adult obesity prevalence has shifted across recent decades.\n\n\n\n\n\n\n\n\n\n\nRising Trend: Between 1999–2000 and 2017–2018, the US adult obesity rate increased from 30.5% to over 42%.\nRecent Leveling: Rates remained above 41% entering 2020, and the August 2021–August 2023 survey recorded 40.3%, pointing to a recent stabilization."
   },
   {
-    "objectID": "index.html#food-processing-trends-over-time-20012023",
-    "href": "index.html#food-processing-trends-over-time-20012023",
+    "objectID": "index.html#food-consumption-trends-ultra-processed-vs.-minimally-processed-foods",
+    "href": "index.html#food-consumption-trends-ultra-processed-vs.-minimally-processed-foods",
     "title": "NHANES Health Insights",
-    "section": "Food Processing Trends Over Time (2001–2023)",
-    "text": "Food Processing Trends Over Time (2001–2023)\nResearch from NHANES dietary recall surveys tracks how the proportion of daily calories coming from ultra-processed foods versus whole or minimally processed foods has shifted among US adults.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpposing Trends: As ultra-processed foods rose from 53.5% in 2001–2002 to 57.0% in 2017–2018, whole and minimally processed foods fell from 32.7% to 27.4%.\nRecent Shift: In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%."
+    "section": "Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods",
+    "text": "Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods\nThis graph tracks the proportion of daily calories coming from ultra-processed foods (shown in red) compared to whole and minimally processed foods (shown in green) among US adults over time.\n\n\n\n\n\n\n\n\n\n\nOpposing Trends: As ultra-processed foods rose from 52.5% in 1999–2000 to over 57% by 2018–2020, whole and minimally processed foods fell from 33.5% to 27.4%.\nRecent Shift: In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%."
   }
 ]

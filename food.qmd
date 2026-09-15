@@ -50,9 +50,9 @@ obesity_trends |>
   )
 ```
 
-## Dietary Trends: Ultra-Processed vs. Minimally Processed Foods
+## Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods
 
-Research from NHANES dietary recall surveys tracks the proportion of daily calories coming from ultra-processed foods compared to whole and minimally processed foods among Americans.
+This graph tracks the proportion of daily calories coming from ultra-processed foods (shown in red) compared to whole and minimally processed foods (shown in green) among US adults over time.
 
 ```{r}
 #| label: food-processing-plot
@@ -62,13 +62,13 @@ Research from NHANES dietary recall surveys tracks the proportion of daily calor
 
 food_trends <- bind_rows(
   tibble(
-    year = c(2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2023),
-    pct_calories = c(0.535, 0.543, 0.554, 0.558, 0.561, 0.564, 0.569, 0.567, 0.570, 0.530),
+    year = c(2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020, 2023),
+    pct_calories = c(0.525, 0.535, 0.543, 0.554, 0.558, 0.561, 0.564, 0.569, 0.567, 0.570, 0.572, 0.530),
     category = "Ultra-Processed Foods"
   ),
   tibble(
-    year = c(2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2023),
-    pct_calories = c(0.327, 0.318, 0.305, 0.300, 0.295, 0.291, 0.283, 0.281, 0.274, 0.305),
+    year = c(2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020, 2023),
+    pct_calories = c(0.335, 0.327, 0.318, 0.305, 0.300, 0.295, 0.291, 0.283, 0.281, 0.274, 0.287, 0.305),
     category = "Whole & Minimally Processed Foods"
   )
 )
@@ -85,7 +85,7 @@ food_trends |>
   ) +
   scale_color_manual(
     values = c(
-      "Ultra-Processed Foods" = "#e6550d",
+      "Ultra-Processed Foods" = "#d73027",
       "Whole & Minimally Processed Foods" = "#2ca25f"
     )
   ) +
@@ -94,10 +94,10 @@ food_trends |>
     limits = c(0.24, 0.62),
     breaks = seq(0.25, 0.60, by = 0.05)
   ) +
-  scale_x_continuous(breaks = c(2002, 2006, 2010, 2014, 2018, 2023)) +
+  scale_x_continuous(breaks = c(2000, 2004, 2008, 2012, 2016, 2020, 2023)) +
   labs(
-    title = "US Caloric Share: Ultra-Processed vs. Minimally Processed (2001–2023)",
-    subtitle = "Percentage of total daily calories among US adults by processing category",
+    title = "US Caloric Share: Ultra-Processed vs. Minimally Processed Foods (1999–2023)",
+    subtitle = "Percentage of daily calories: ultra-processed foods (red) vs. minimally processed foods (green)",
     x = "Survey Period Ending Year",
     y = "Share of Daily Calories",
     color = "Food Category",
@@ -114,6 +114,6 @@ food_trends |>
   )
 ```
 
-- **Opposing Trends:** As ultra-processed foods rose from 53.5% in 2001–2002 to 57.0% in 2017–2018, whole and minimally processed foods fell from 32.7% to 27.4%.
+- **Opposing Trends:** As ultra-processed foods rose from 52.5% in 1999–2000 to over 57% by 2018–2020, whole and minimally processed foods fell from 33.5% to 27.4%.
 - **Recent Shift:** In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%.
 

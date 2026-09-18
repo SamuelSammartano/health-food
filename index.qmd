@@ -175,6 +175,9 @@ simulated_participants |>
     breaks = c(2000, 2004, 2008, 2012, 2016, 2020, 2023),
     limits = c(1999, 2024)
   ) +
+  scale_y_continuous(
+    breaks = seq(100, 360, by = 20)
+  ) +
   labs(
     title = "US Adult Weight Distribution and Obesity Over Time (1999–2023)",
     subtitle = "Representative sample of adult participants (120 per cycle): Obese (red) vs. Not Obese (green)",

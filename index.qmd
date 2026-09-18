@@ -68,30 +68,30 @@ nhanes |>
 set.seed(42)
 
 nhanes |>
-  drop_na(age, bmi, sex) |>
-  mutate(obese = if_else(bmi >= 30, 1, 0)) |>
+  drop_na(age, bmi, sex, weight) |>
+  mutate(
+    weight_lbs = weight * 2.20462,
+    obese = if_else(bmi >= 30, "Obese", "Not Obese")
+  ) |>
   slice_sample(n = 2000) |>
-  ggplot(aes(x = age, y = obese, color = sex)) +
-  geom_jitter(height = 0.04, alpha = 0.2, size = 1.2) +
-  geom_smooth(method = "loess", se = FALSE, linewidth = 1.3) +
+  ggplot(aes(x = age, y = weight_lbs)) +
+  geom_point(aes(color = obese), alpha = 0.35, size = 1.3) +
+  geom_smooth(method = "loess", se = FALSE, color = "#222222", linewidth = 1.3) +
   facet_wrap(~ sex) +
-  scale_y_continuous(
-    breaks = seq(0, 1, by = 0.2),
-    labels = scales::percent_format(accuracy = 1),
-    limits = c(-0.08, 1.08)
-  ) +
+  scale_color_manual(values = c("Obese" = "#d73027", "Not Obese" = "#2ca25f")) +
   scale_x_continuous(breaks = seq(0, 80, by = 10)) +
-  scale_color_manual(values = c("Female" = "#d95f02", "Male" = "#1b9e77")) +
+  scale_y_continuous(breaks = seq(0, 500, by = 50)) +
   labs(
-    title = "Obesity Across Age (2,000 Sampled Participants)",
-    subtitle = "Individual participants (jittered at 0% and 100%) with loess obesity rate curve across age",
+    title = "Weight Across Age by Obesity Status (2,000 Sampled Participants)",
+    subtitle = "Participant weights (lbs) across age: Obese (red) vs. Not Obese (green), with solid black line showing average weight",
     x = "Age (years)",
-    y = "Obesity Status & Prevalence",
+    y = "Weight (lbs)",
+    color = "Status",
     caption = "Source: National Health and Nutrition Examination Survey (primer.data::nhanes)"
   ) +
   theme_minimal(base_size = 13) +
   theme(
-    legend.position = "none",
+    legend.position = "bottom",
     strip.text = element_text(face = "bold", size = 13),
     plot.title = element_text(face = "bold", size = 15, margin = margin(b = 6)),
     plot.subtitle = element_text(color = "#555555", margin = margin(b = 15)),
@@ -100,6 +100,9 @@ nhanes |>
     panel.grid.major = element_line(color = "#ececec")
   )
 ```
+
+- **Growth and Trajectory:** Weight increases rapidly through childhood and adolescence (ages 2–20), peaks in middle adulthood (ages 40–60), and gently decreases in later decades.
+- **Obesity Separation:** Participants classified as obese (BMI ≥ 30, in red) cluster significantly higher in weight, while the solid black line reflects the average weight curve across age for each sex.
 
 ## Obesity Rates Over Time
 
@@ -393,8 +396,12 @@ diet_diseases_trends |>
   )
 ```
 
-- **Sharp Rise in Diabetes:** Type 2 diabetes prevalence nearly doubled from 6.2% in 2000 to 11.6% in 2023, reflecting long-term increases in metabolic risk factors.
-- **Cardiometabolic Clustering:** Hypertension (high blood pressure) and obesity remain the most widespread conditions, consistently affecting more than one-third of American adults.
+### Understanding the Diseases
+
+- **Obesity (BMI ≥ 30):** A chronic metabolic condition where excessive body fat accumulates, increasing strain on organs and joints. Diets high in ultra-processed, energy-dense foods and added sugars promote chronic caloric surpluses and weight gain.
+- **Hypertension (High Blood Pressure):** A condition where blood flows through arteries at higher-than-normal pressure (consistently ≥ 130/80 mmHg). High dietary sodium, low potassium intake from whole foods, and vascular damage contribute significantly to high blood pressure.
+- **Heart Disease:** A group of cardiovascular disorders—primarily coronary artery disease and heart attacks—caused by arterial plaque buildup (atherosclerosis). Unhealthy dietary fats, refined carbs, and chronic inflammation narrow arteries and restrict blood supply to the heart.
+- **Type 2 Diabetes:** A metabolic disorder where cells become resistant to insulin, causing blood glucose levels to remain abnormally high. Long-term diets rich in added sugars and ultra-processed carbohydrates are primary drivers of insulin resistance.
 
 :::
 

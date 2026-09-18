@@ -13,6 +13,10 @@ library(tidyverse)
 library(primer.data)
 ```
 
+::: {.panel-tabset}
+
+## BMI Trajectory
+
 ```{r}
 #| label: bmi-plot
 #| fig-width: 10
@@ -53,7 +57,7 @@ nhanes |>
 - **Middle Adulthood:** BMI levels tend to plateau between ages 30 and 60, with the average hovering in the 28–30 kg/m² range.
 - **Later Decades:** The trend line stabilizes and gently tapers downward in older age, following comparable paths for both males and females.
 
-## Obesity Rates Across Age
+## Obesity by Age
 
 ```{r}
 #| label: obesity-plot
@@ -206,7 +210,7 @@ simulated_participants |>
 - **Average Weight Trend Line:** The solid black line tracks the average adult weight across each year, rising from approximately 174 lbs in 2000 to over 183 lbs in 2018–2020 as obesity rates climbed.
 - **Trend Over Time (1999–2023):** As the national adult obesity rate increased from 30.5% in 1999–2000 to over 42% in recent survey cycles, the proportion of red dots visibly rises across the timeline.
 
-## Heart Disease Rates Over Time
+## Heart Disease
 
 Heart disease remains the leading cause of death in the United States. This graph tracks the prevalence of diagnosed heart disease among US adults from 1999 to 2023.
 
@@ -252,7 +256,7 @@ heart_disease_trends |>
 - **Prevalence Stability:** Approximately 11% of US adults live with diagnosed heart disease, holding relatively steady between 10.6% and 11.9% from 1999 through 2023.
 - **Cardiovascular Health Impact:** While medical innovations and medications have improved management, heart disease remains the #1 cause of death in the US, strongly influenced by long-term metabolic health and obesity.
 
-## Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods
+## Ultra-Processed Diet
 
 This graph tracks the proportion of daily calories coming from ultra-processed foods (shown in red) compared to whole and minimally processed foods (shown in green) among US adults over time.
 
@@ -318,6 +322,8 @@ food_trends |>
 
 - **Opposing Trends:** As ultra-processed foods rose from 52.5% in 1999–2000 to over 57% by 2018–2020, whole and minimally processed foods fell from 33.5% to 27.4%.
 - **Recent Shift:** In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%.
+
+:::
 
 
 

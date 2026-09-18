@@ -144,23 +144,42 @@ obesity_trends |>
 #| fig-height: 5.5
 #| fig-align: center
 
-nhanes |>
+nhanes_subset <- nhanes |>
   filter(age >= 18) |>
-  drop_na(survey, weight, bmi, sex) |>
+  drop_na(survey, weight, bmi) |>
   mutate(
     weight_lbs = weight * 2.20462,
     obesity = if_else(bmi >= 30, "Obese", "Not Obese"),
-    survey_cycle = factor(survey, levels = c(2009, 2011), labels = c("2009–2010", "2011–2012"))
-  ) |>
-  ggplot(aes(x = survey_cycle, y = weight_lbs, color = obesity)) +
-  geom_jitter(width = 0.25, alpha = 0.2, size = 1.2) +
-  facet_wrap(~ sex) +
+    survey_year = if_else(survey == 2009, 2009.5, 2011.5)
+  )
+
+avg_weight <- mean(nhanes_subset$weight_lbs)
+
+nhanes_subset |>
+  ggplot(aes(x = survey_year, y = weight_lbs)) +
+  geom_jitter(aes(color = obesity), width = 0.9, alpha = 0.15, size = 1.2) +
+  geom_hline(yintercept = avg_weight, color = "#222222", linewidth = 1.2, linetype = "dashed") +
+  annotate(
+    "label",
+    x = 2010.5,
+    y = avg_weight,
+    label = paste0("Average Weight: ", round(avg_weight, 0), " lbs"),
+    fill = "white",
+    color = "#222222",
+    fontface = "bold",
+    size = 3.8
+  ) +
   scale_color_manual(
     values = c("Obese" = "#d73027", "Not Obese" = "#2ca25f")
   ) +
+  scale_x_continuous(
+    breaks = c(2009.5, 2011.5),
+    labels = c("2009–2010", "2011–2012"),
+    limits = c(2008.3, 2012.7)
+  ) +
   labs(
-    title = "Participant Weight and Obesity Across Survey Cycles",
-    subtitle = "Individual adult participants: Obese (BMI ≥ 30, red) vs. Not Obese (green)",
+    title = "Adult Weight Distribution and Obesity Across Survey Cycles",
+    subtitle = "Combined participants with continuous transition and average weight line separating general trends",
     x = "Survey Cycle",
     y = "Weight (lbs)",
     color = "Status",
@@ -169,7 +188,6 @@ nhanes |>
   theme_minimal(base_size = 13) +
   theme(
     legend.position = "bottom",
-    strip.text = element_text(face = "bold", size = 13),
     plot.title = element_text(face = "bold", size = 15, margin = margin(b = 6)),
     plot.subtitle = element_text(color = "#555555", margin = margin(b = 15)),
     plot.caption = element_text(color = "#888888", size = 9, margin = margin(t = 12)),

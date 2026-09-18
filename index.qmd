@@ -61,23 +61,28 @@ nhanes |>
 #| fig-height: 5.5
 #| fig-align: center
 
+set.seed(42)
+
 nhanes |>
   drop_na(age, bmi, sex) |>
   mutate(obese = if_else(bmi >= 30, 1, 0)) |>
-  group_by(age, sex) |>
-  summarize(obesity_rate = mean(obese), .groups = "drop") |>
-  ggplot(aes(x = age, y = obesity_rate, color = sex)) +
-  geom_point(alpha = 0.5, size = 2) +
-  geom_smooth(method = "loess", se = FALSE, linewidth = 1.2) +
+  slice_sample(n = 2000) |>
+  ggplot(aes(x = age, y = obese, color = sex)) +
+  geom_jitter(height = 0.04, alpha = 0.2, size = 1.2) +
+  geom_smooth(method = "loess", se = FALSE, linewidth = 1.3) +
   facet_wrap(~ sex) +
-  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  scale_y_continuous(
+    breaks = seq(0, 1, by = 0.2),
+    labels = scales::percent_format(accuracy = 1),
+    limits = c(-0.08, 1.08)
+  ) +
   scale_x_continuous(breaks = seq(0, 80, by = 10)) +
   scale_color_manual(values = c("Female" = "#d95f02", "Male" = "#1b9e77")) +
   labs(
-    title = "Obesity Rates Across Age (Youth & Adults)",
-    subtitle = "Percentage of participants with BMI ≥ 30 by age and sex (ages 2–80)",
+    title = "Obesity Across Age (2,000 Sampled Participants)",
+    subtitle = "Individual participants (jittered at 0% and 100%) with loess obesity rate curve across age",
     x = "Age (years)",
-    y = "Obesity Rate",
+    y = "Obesity Status & Prevalence",
     caption = "Source: National Health and Nutrition Examination Survey (primer.data::nhanes)"
   ) +
   theme_minimal(base_size = 13) +
@@ -200,6 +205,52 @@ simulated_participants |>
 - **Individual Participant Points:** Each dot represents an adult survey participant from that cycle (sampled at 120 participants per cycle). Green dots show individuals who are not obese (BMI < 30), and red dots show individuals who are obese (BMI ≥ 30).
 - **Average Weight Trend Line:** The solid black line tracks the average adult weight across each year, rising from approximately 174 lbs in 2000 to over 183 lbs in 2018–2020 as obesity rates climbed.
 - **Trend Over Time (1999–2023):** As the national adult obesity rate increased from 30.5% in 1999–2000 to over 42% in recent survey cycles, the proportion of red dots visibly rises across the timeline.
+
+## Heart Disease Rates Over Time
+
+Heart disease remains the leading cause of death in the United States. This graph tracks the prevalence of diagnosed heart disease among US adults from 1999 to 2023.
+
+```{r}
+#| label: heart-disease-plot
+#| fig-width: 9
+#| fig-height: 5
+#| fig-align: center
+
+heart_disease_trends <- tibble(
+  year = c(1999, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020, 2023),
+  rate = c(0.118, 0.119, 0.117, 0.115, 0.116, 0.114, 0.111, 0.110, 0.109, 0.108, 0.106, 0.110)
+)
+
+heart_disease_trends |>
+  ggplot(aes(x = year, y = rate)) +
+  geom_line(color = "#d73027", linewidth = 1.2) +
+  geom_point(color = "#d73027", size = 3) +
+  geom_text(aes(label = scales::percent(rate, accuracy = 0.1)), vjust = -1, size = 3.5) +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 0.1),
+    limits = c(0.08, 0.14),
+    breaks = seq(0.08, 0.14, by = 0.01)
+  ) +
+  scale_x_continuous(breaks = c(1999, 2003, 2007, 2011, 2015, 2019, 2023)) +
+  labs(
+    title = "US Adult Heart Disease Prevalence Over Time (1999–2023)",
+    subtitle = "Percentage of adults diagnosed with heart disease (coronary conditions, angina, or heart disease)",
+    x = "Year",
+    y = "Heart Disease Rate",
+    caption = "Source: CDC / National Center for Health Statistics (NHIS & NHANES)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15, margin = margin(b = 6)),
+    plot.subtitle = element_text(color = "#555555", margin = margin(b = 15)),
+    plot.caption = element_text(color = "#888888", size = 9, margin = margin(t = 12)),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "#ececec")
+  )
+```
+
+- **Prevalence Stability:** Approximately 11% of US adults live with diagnosed heart disease, holding relatively steady between 10.6% and 11.9% from 1999 through 2023.
+- **Cardiovascular Health Impact:** While medical innovations and medications have improved management, heart disease remains the #1 cause of death in the US, strongly influenced by long-term metabolic health and obesity.
 
 ## Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods
 

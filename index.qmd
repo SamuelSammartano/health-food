@@ -323,6 +323,79 @@ food_trends |>
 - **Opposing Trends:** As ultra-processed foods rose from 52.5% in 1999–2000 to over 57% by 2018–2020, whole and minimally processed foods fell from 33.5% to 27.4%.
 - **Recent Shift:** In the August 2021–August 2023 survey cycle, ultra-processed food intake dropped to 53.0%, while whole and minimally processed calories rose back to approximately 30.5%.
 
+## Diet-Related Diseases
+
+Poor diets high in ultra-processed foods, added sugars, sodium, and saturated fats contribute to several chronic health conditions. This chart tracks major diet-related conditions among US adults from 2000 to 2023.
+
+```{r}
+#| label: diet-diseases-plot
+#| fig-width: 9.5
+#| fig-height: 5.5
+#| fig-align: center
+
+diet_diseases_trends <- bind_rows(
+  tibble(
+    year = c(2000, 2004, 2008, 2012, 2016, 2020, 2023),
+    rate = c(0.305, 0.322, 0.337, 0.349, 0.396, 0.419, 0.403),
+    condition = "Obesity"
+  ),
+  tibble(
+    year = c(2000, 2004, 2008, 2012, 2016, 2020, 2023),
+    rate = c(0.290, 0.302, 0.315, 0.322, 0.338, 0.354, 0.348),
+    condition = "Hypertension"
+  ),
+  tibble(
+    year = c(2000, 2004, 2008, 2012, 2016, 2020, 2023),
+    rate = c(0.118, 0.117, 0.116, 0.111, 0.109, 0.106, 0.110),
+    condition = "Heart Disease"
+  ),
+  tibble(
+    year = c(2000, 2004, 2008, 2012, 2016, 2020, 2023),
+    rate = c(0.062, 0.070, 0.082, 0.093, 0.105, 0.113, 0.116),
+    condition = "Type 2 Diabetes"
+  )
+)
+
+diet_diseases_trends |>
+  ggplot(aes(x = year, y = rate, color = condition)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2.8) +
+  scale_color_manual(
+    values = c(
+      "Obesity" = "#e41a1c",
+      "Hypertension" = "#ff7f00",
+      "Heart Disease" = "#984ea3",
+      "Type 2 Diabetes" = "#377eb8"
+    )
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    limits = c(0.04, 0.45),
+    breaks = seq(0.05, 0.45, by = 0.05)
+  ) +
+  scale_x_continuous(breaks = c(2000, 2004, 2008, 2012, 2016, 2020, 2023)) +
+  labs(
+    title = "Prevalence of Diet-Related Chronic Diseases Among US Adults (2000–2023)",
+    subtitle = "Tracking trends in obesity, high blood pressure, heart disease, and type 2 diabetes",
+    x = "Year",
+    y = "Prevalence Rate (% of Adults)",
+    color = "Condition",
+    caption = "Source: CDC National Center for Health Statistics (NHANES & NHIS Reports)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 15, margin = margin(b = 6)),
+    plot.subtitle = element_text(color = "#555555", margin = margin(b = 15)),
+    plot.caption = element_text(color = "#888888", size = 9, margin = margin(t = 12)),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "#ececec")
+  )
+```
+
+- **Sharp Rise in Diabetes:** Type 2 diabetes prevalence nearly doubled from 6.2% in 2000 to 11.6% in 2023, reflecting long-term increases in metabolic risk factors.
+- **Cardiometabolic Clustering:** Hypertension (high blood pressure) and obesity remain the most widespread conditions, consistently affecting more than one-third of American adults.
+
 :::
 
 

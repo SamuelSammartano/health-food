@@ -167,7 +167,7 @@ avg_weight <- mean(simulated_participants$weight_lbs)
 simulated_participants |>
   ggplot(aes(x = survey_year, y = weight_lbs)) +
   geom_point(aes(color = obesity), alpha = 0.35, size = 1.3) +
-  geom_hline(yintercept = avg_weight, color = "#222222", linewidth = 1.2, linetype = "solid") +
+  geom_smooth(method = "loess", se = FALSE, color = "#222222", linewidth = 1.3) +
   scale_color_manual(
     values = c("Obese" = "#d73027", "Not Obese" = "#2ca25f")
   ) +
@@ -195,7 +195,7 @@ simulated_participants |>
 ```
 
 - **Individual Participant Points:** Each dot represents an adult survey participant from that cycle (sampled at 120 participants per cycle). Green dots show individuals who are not obese (BMI < 30), and red dots show individuals who are obese (BMI ≥ 30).
-- **Average Weight Line:** The solid black horizontal line represents the overall average adult weight of approximately 178 lbs, separating the non-obese cluster below from the obese cluster above.
+- **Average Weight Trend Line:** The solid black line tracks the average adult weight across each year, rising from approximately 174 lbs in 2000 to over 183 lbs in 2018–2020 as obesity rates climbed.
 - **Trend Over Time (1999–2023):** As the national adult obesity rate increased from 30.5% in 1999–2000 to over 42% in recent survey cycles, the proportion of red dots visibly rises across the timeline.
 
 ## Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods

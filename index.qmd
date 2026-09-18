@@ -158,17 +158,7 @@ avg_weight <- mean(nhanes_subset$weight_lbs)
 nhanes_subset |>
   ggplot(aes(x = survey_year, y = weight_lbs)) +
   geom_jitter(aes(color = obesity), width = 0.9, alpha = 0.15, size = 1.2) +
-  geom_hline(yintercept = avg_weight, color = "#222222", linewidth = 1.2, linetype = "dashed") +
-  annotate(
-    "label",
-    x = 2010.5,
-    y = avg_weight,
-    label = paste0("Average Weight: ", round(avg_weight, 0), " lbs"),
-    fill = "white",
-    color = "#222222",
-    fontface = "bold",
-    size = 3.8
-  ) +
+  geom_hline(yintercept = avg_weight, color = "#222222", linewidth = 1.2, linetype = "solid") +
   scale_color_manual(
     values = c("Obese" = "#d73027", "Not Obese" = "#2ca25f")
   ) +
@@ -179,7 +169,7 @@ nhanes_subset |>
   ) +
   labs(
     title = "Adult Weight Distribution and Obesity Across Survey Cycles",
-    subtitle = "Combined participants with continuous transition and average weight line separating general trends",
+    subtitle = "Individual adult participants: Obese (BMI ≥ 30, red) vs. Not Obese (green)",
     x = "Survey Cycle",
     y = "Weight (lbs)",
     color = "Status",
@@ -195,6 +185,10 @@ nhanes_subset |>
     panel.grid.major = element_line(color = "#ececec")
   )
 ```
+
+- **Individual Participant Points:** Each dot represents an adult participant in NHANES. Green dots indicate individuals who are not obese (BMI < 30), and red dots indicate individuals who are obese (BMI ≥ 30).
+- **Average Weight Line:** The solid black horizontal line represents the overall average adult weight of approximately 181 lbs, separating the general non-obese cluster below from the obese cluster above.
+- **Survey Cycles:** Weight patterns and the density of participants remain consistent across the 2009–2010 and 2011–2012 survey cycles.
 
 ## Food Consumption Trends: Ultra-Processed vs. Minimally Processed Foods
 
